@@ -1,0 +1,26 @@
+# UiPath local/generated files
+.local/
+.objects/
+.project/
+.settings/
+.tmh/
+
+# Build and package outputs
+bin/
+obj/
+output/
+publish/
+*.nupkg
+*.snupkg
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+~$*
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vs/
+.vscode/
