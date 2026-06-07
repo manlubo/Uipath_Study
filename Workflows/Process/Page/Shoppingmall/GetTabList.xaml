@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>835,1294</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>958,1294</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetTabList_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -167,7 +167,7 @@
             </ui:FilterDataTable>
             <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
-                <OutArgument x:TypeArguments="x:Object">[io_dic_config("arr_tab_list")]</OutArgument>
+                <OutArgument x:TypeArguments="x:Object">[io_dic_config("arr_s_tab_list")]</OutArgument>
               </Assign.To>
               <Assign.Value>
                 <InArgument x:TypeArguments="x:Object">[ExtractDataTable.AsEnumerable().Select(Function(r) r("tab").ToString).ToArray]</InArgument>

@@ -1,14 +1,14 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="UnpackDictionary" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="UnpackDictionary" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_key" Type="InArgument(x:String)" />
-    <x:Property Name="out_str" Type="InArgument(x:String)" />
+    <x:Property Name="out_str" Type="OutArgument(x:String)" />
     <x:Property Name="in_dict" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property Name="out_int" Type="InArgument(x:Int32)" />
-    <x:Property Name="out_bool" Type="InArgument(x:Boolean)" />
-    <x:Property Name="out_datatable" Type="InArgument(sd:DataTable)" />
-    <x:Property Name="out_arrstr" Type="InArgument(s:String[])" />
-    <x:Property Name="out_datetime" Type="InArgument(s:DateTime)" />
-    <x:Property Name="out_double" Type="InArgument(x:Double)" />
+    <x:Property Name="out_int" Type="OutArgument(x:Int32)" />
+    <x:Property Name="out_bool" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="out_datatable" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="out_datetime" Type="OutArgument(s:DateTime)" />
+    <x:Property Name="out_double" Type="OutArgument(x:Double)" />
+    <x:Property Name="out_arr_str" Type="OutArgument(s:String[])" />
   </x:Members>
   <this:UnpackDictionary.in_key>
     <InArgument x:TypeArguments="x:String">
@@ -18,7 +18,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>625,1028</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>958,1202</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>UnpackDictionary_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -101,23 +101,28 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>System.Private.Uri</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="UnpackDictionary" sap:VirtualizedContainerService.HintSize="635,963" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="UnpackDictionary" sap:VirtualizedContainerService.HintSize="635,1137" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[in_dict.ContainsKey(in_key)]" sap:VirtualizedContainerService.HintSize="573,852" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[in_dict.ContainsKey(in_key)]" sap:VirtualizedContainerService.HintSize="573,1026" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="539,492" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence sap:VirtualizedContainerService.HintSize="539,666" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_dict(in_Key).GetType.Name]" sap:VirtualizedContainerService.HintSize="497,404" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="497,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Unpack Dictionary Type - &quot; + in_dict(in_Key).GetType.Name]" />
+          <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_dict(in_Key).GetType.Name]" sap:VirtualizedContainerService.HintSize="497,397" sap2010:WorkflowViewState.IdRef="Switch`1_1">
             <Switch.Default>
               <Throw Exception="[New BusinessRuleException(&quot;Unpack 실패: '&quot; + in_Key + &quot;' 키의 데이터 타입이 정의되어 있지 않습니다. 실제 타입: &quot; + in_dict(in_key).GetType.Name)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
             </Switch.Default>
@@ -171,7 +176,7 @@
             </Assign>
             <Assign x:Key="String[]" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_7">
               <Assign.To>
-                <OutArgument x:TypeArguments="s:String[]">[out_arrstr]</OutArgument>
+                <OutArgument x:TypeArguments="s:String[]">[out_arr_str]</OutArgument>
               </Assign.To>
               <Assign.Value>
                 <InArgument x:TypeArguments="s:String[]">[TryCast(in_dict(in_key), String())]</InArgument>

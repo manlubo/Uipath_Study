@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>558,1486</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>958,1488</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GoToTab_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -96,14 +96,10 @@
       <AssemblyReference>UiPath.Platform</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GoToTab" sap:VirtualizedContainerService.HintSize="568,1421" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GoToTab" sap:VirtualizedContainerService.HintSize="568,1423" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Object" Name="obj_timer" />
-      <Variable x:TypeArguments="x:String" Name="s_task_name">
-        <Variable.Default>
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="s_task_name + &quot;탭 이동&quot;" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:String" Default="[s_task_name + &quot;탭 이동&quot;]" Name="s_task_name" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -112,21 +108,17 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Workflows\Components\StartLog.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="506,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\Components\StartLog.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="x:Object" x:Key="out_obj_timer">
-          <VisualBasicReference x:TypeArguments="x:Object" ExpressionText="obj_timer" />
-        </OutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_s_task_name">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="s_task_name" />
-        </InArgument>
+        <OutArgument x:TypeArguments="x:Object" x:Key="out_obj_timer">[obj_timer]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_s_task_name">[s_task_name]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: RPA Practice Site" sap:VirtualizedContainerService.HintSize="506,1004" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="c6943ed5-95d8-44a8-8e39-ddb065aa41d1" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: RPA Practice Site" sap:VirtualizedContainerService.HintSize="506,1006" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="c6943ed5-95d8-44a8-8e39-ddb065aa41d1" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="472,787" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="472,789" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="s_attr" />
             </Sequence.Variables>
@@ -137,7 +129,7 @@
             </sap:WorkflowViewStateService.ViewState>
             <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="style" DisplayName="Get Attribute '전체'" sap:VirtualizedContainerService.HintSize="410,207" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_1" Result="[s_attr]" ScopeIdentifier="c6943ed5-95d8-44a8-8e39-ddb065aa41d1" Version="V3">
               <uix:NGetAttributeGeneric.Target>
-                <uix:TargetAnchorable BrowserURL="https://rpa-study.vercel.app/" CVScreenId="6a0fba28-dda1-451f-b6f3-929f4aabfed4" CvElementArea="36, 450, 66, 55" CvTextArea="43, 456, 54, 34" CvType="Icon" DesignTimeRectangle="45, 447, 52, 60" DesignTimeScaleFactor="2" ElementType="Button" FriendlyName="'전체'" FullSelectorArgument="&lt;webctrl id='shop-cat-all' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='shop-cat-all' tag='BUTTON' type='' class='whitespace-nowrap py-1 font-medium transition-colors shrink-0 border-b-2' aaname='전체' /&gt;" Guid="be1fb63a-6322-4e58-9d47-9bdb5df31476" InformativeScreenshot="acb487ada7595dac81596149f36757f7.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='RPA Practice Site' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                <uix:TargetAnchorable BrowserURL="https://rpa-study.vercel.app/" CVScreenId="6a0fba28-dda1-451f-b6f3-929f4aabfed4" CvElementArea="36, 450, 66, 55" CvTextArea="43, 456, 54, 34" CvType="Icon" DesignTimeRectangle="45, 447, 52, 60" DesignTimeScaleFactor="2" ElementType="Button" FriendlyName="'전체'" FullSelectorArgument="&lt;webctrl id='shop-cat-*' tag='BUTTON' /&gt;" FuzzySelectorArgument="[&quot;&lt;webctrl id='shop-cat-*' tag='BUTTON' type='' class='whitespace-nowrap py-1 font-medium transition-colors shrink-0 border-b-2' aaname='&quot;+in_s_tab_name+&quot;' /&gt;&quot;]" Guid="be1fb63a-6322-4e58-9d47-9bdb5df31476" InformativeScreenshot="acb487ada7595dac81596149f36757f7.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='RPA Practice Site' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
               </uix:NGetAttributeGeneric.Target>
             </uix:NGetAttributeGeneric>
             <If Condition="[s_attr.Contains(&quot;border-color: transparent&quot;)]" sap:VirtualizedContainerService.HintSize="410,427" sap2010:WorkflowViewState.IdRef="If_1">
@@ -168,12 +160,8 @@
     </uix:NApplicationCard>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Workflows\Components\EndLog.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="506,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\Components\EndLog.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:Object" x:Key="in_obj_timer">
-          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="obj_timer" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_s_task_name">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="s_task_name" />
-        </InArgument>
+        <InArgument x:TypeArguments="x:Object" x:Key="in_obj_timer">[obj_timer]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_s_task_name">[s_task_name]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>
