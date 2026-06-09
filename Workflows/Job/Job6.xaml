@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1002,2436</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1002,2130</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Job6_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -111,7 +111,7 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Job6" sap:VirtualizedContainerService.HintSize="617,2371" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Job6" sap:VirtualizedContainerService.HintSize="617,2065" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="arr_s_select" />
       <Variable x:TypeArguments="s:String[]" Name="arr_s_currency_price" />
@@ -135,16 +135,6 @@
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GoToCategory" sap:VirtualizedContainerService.HintSize="555,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\Process\Page\GoToCategory.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_category_name">은행</InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="CloseCheckTab" sap:VirtualizedContainerService.HintSize="555,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Workflows\Process\Page\Bank\CloseCheckTab.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <scg:Dictionary x:TypeArguments="x:String, Argument" />
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="CloseSecurityPopup" sap:VirtualizedContainerService.HintSize="555,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Workflows\Process\Page\Bank\CloseSecurityPopup.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GoToMyPage" sap:VirtualizedContainerService.HintSize="555,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\Process\Page\Bank\GoToMyPage.xaml">
@@ -190,15 +180,9 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetExchange" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Workflows\Process\Page\Bank\GetExchange.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="in_s_price">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="CRow(&quot;총 금액&quot;).ToString" />
-                </InArgument>
-                <InArgument x:TypeArguments="s:String[]" x:Key="in_arr_s_currency_target">
-                  <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{&quot;USD&quot;, &quot;EUR&quot;, &quot;JPY&quot;}" />
-                </InArgument>
-                <OutArgument x:TypeArguments="s:String[]" x:Key="out_arr_s_currency_price">
-                  <VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="arr_s_currency_price" />
-                </OutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_s_price">[CRow("총 금액").ToString]</InArgument>
+                <InArgument x:TypeArguments="s:String[]" x:Key="in_arr_s_currency_target">[{"USD", "EUR", "JPY"}]</InArgument>
+                <OutArgument x:TypeArguments="s:String[]" x:Key="out_arr_s_currency_price">[arr_s_currency_price]</OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,178" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">

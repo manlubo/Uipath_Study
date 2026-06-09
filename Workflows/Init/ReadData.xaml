@@ -104,7 +104,7 @@
               <OutArgument x:TypeArguments="x:Object">[io_dic_config("job")]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:Object">[7]</InArgument>
+              <InArgument x:TypeArguments="x:Object">[8]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">

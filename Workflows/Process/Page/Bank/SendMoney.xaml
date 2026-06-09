@@ -1,0 +1,459 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="SendMoney" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd2="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_dic_config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="io_dic_process" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1346,4439</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>SendMoney_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.OCR.Activities</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="SendMoney" sap:VirtualizedContainerService.HintSize="1356,4374" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_send" />
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="b_stop" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign sap:VirtualizedContainerService.HintSize="1294,83" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataTable">[dt_send]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataTable">[CType(io_dic_process("dt_send"), DataTable)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: RPA Practice Site" sap:VirtualizedContainerService.HintSize="1294,4017" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="7debdc36-c3ce-442a-b8b7-e37833c26c8f" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="1260,3799" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_send]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="1198,3688" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CRow" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="1164,3500" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="s_name" />
+                      <Variable x:TypeArguments="x:String" Name="s_send_money" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1122,148" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                      <ui:MultipleAssign.AssignOperations>
+                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[s_send_money]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[CRow("금액").ToString]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[s_name]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[CRow("이름").ToString]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                        </scg:List>
+                      </ui:MultipleAssign.AssignOperations>
+                    </ui:MultipleAssign>
+                    <If Condition="[CInt(s_send_money) &gt; 0 And b_stop = False]" sap:VirtualizedContainerService.HintSize="1122,3224" sap2010:WorkflowViewState.IdRef="If_1">
+                      <If.Then>
+                        <Sequence sap:VirtualizedContainerService.HintSize="1088,3041" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:String" Name="s_trade_num" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '박지훈'" sap:VirtualizedContainerService.HintSize="1046,158" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7debdc36-c3ce-442a-b8b7-e37833c26c8f" Version="V3">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://rpa-study.vercel.app/" DesignTimeRectangle="316, 559, 36, 20" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'박지훈'" FullSelectorArgument="&lt;webctrl parentid='bank-recipient-*' tag='SPAN' /&gt;" FuzzySelectorArgument="[&quot;&lt;webctrl parentid='bank-recipient-*' tag='SPAN' type='' class='' aaname='&quot;+s_name+&quot;' /&gt;&quot;]" Guid="4eee4292-f8a9-4400-a469-e1c20ab59a81" ImageBase64="" InformativeScreenshot="903d12e683a5cf0fc0f0bb88ab5d5008.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='RPA Practice Site' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                    <uix:Target DesignTimeRectangle="315, 515, 38, 38" ElementType="Text" FriendlyName="'박'" FullSelectorArgument="&lt;webctrl parentid='bank-recipient-*' tag='DIV' /&gt;" FuzzySelectorArgument="[&quot;&lt;webctrl parentid='bank-recipient-*' tag='DIV' type='' class='' aaname='&quot;+s_name.Substring(0,1)+&quot;'  /&gt;&quot;]" ImageBase64="" SearchSteps="FuzzySelector" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '이체 금액'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1046,219" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="7debdc36-c3ce-442a-b8b7-e37833c26c8f" Text="[s_send_money]" Version="V3">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="https://rpa-study.vercel.app/" CVScreenId="5b4df45f-9fb2-442e-a6a0-19d24b9e8abc" CvElementArea="449, 605, 389, 58" CvType="InputBox" DesignTimeRectangle="452, 607, 384, 55" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT bank-transfer-amo…'" FullSelectorArgument="&lt;webctrl id='bank-transfer-amount' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='bank-transfer-amount' tag='INPUT' type='number' class='bank-input' aaname='' /&gt;" Guid="83893270-d3e9-40d2-a50b-f677e84f63cd" InformativeScreenshot="4b43e33a8fb74252f6872eed2f984033.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='RPA Practice Site' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                    <uix:Target CVScreenId="5b4df45f-9fb2-442e-a6a0-19d24b9e8abc" CvTextArea="450, 584, 50, 16" CvTextArgument="0|X| 2MM" CvType="Text" DesignTimeRectangle="452, 584, 384, 18" ElementType="Text" FriendlyName="'이체 금액'" FullSelectorArgument="&lt;webctrl aaname='이체 금액' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='이체 금액' tag='LABEL' type='' class='' check:innerText='이체 금액' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NTypeInto.Target>
+                          </uix:NTypeInto>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '다음'" sap:VirtualizedContainerService.HintSize="1046,158" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7debdc36-c3ce-442a-b8b7-e37833c26c8f" Version="V3">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://rpa-study.vercel.app/" CVScreenId="12fa7174-b283-4711-b965-8923dc358c61" CvElementArea="451, 835, 386, 53" CvTextArea="628, 851, 31, 20" CvTextArgument="98" CvType="Button" DesignTimeRectangle="452, 837, 384, 51" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'다음'" FullSelectorArgument="&lt;webctrl class='bank-btn-green' parentid='bank-transfer-modal' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl class='bank-btn-green' parentid='bank-transfer-modal' tag='BUTTON' type='' aaname='다음' check:innerText='다음' /&gt;" Guid="7d737c67-6492-4df5-bb61-65176d89f55d" InformativeScreenshot="99c1c68c696be1b417f58cf98edd1232.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='RPA Practice Site' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NCheckState DisplayName="Check App State '잔액이 부족합니다.'" sap:VirtualizedContainerService.HintSize="1046,2298" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="7debdc36-c3ce-442a-b8b7-e37833c26c8f" Timeout="2" Version="V3">
+                            <uix:NCheckState.IfExists>
+                              <Sequence DisplayName="타겟이 나타남" sap:VirtualizedContainerService.HintSize="496,394" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Boolean">[b_stop]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '✕'" sap:VirtualizedContainerService.HintSize="434,158" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7debdc36-c3ce-442a-b8b7-e37833c26c8f" Version="V3">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://rpa-study.vercel.app/" DesignTimeRectangle="810, 257, 26, 30" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'✕'" FullSelectorArgument="&lt;webctrl aria-label='닫기' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='닫기' tag='BUTTON' type='' class='' aaname='✕' check:innerText='✕' /&gt;" Guid="023532e4-905e-4615-a629-6b8d8fed5a2b" InformativeScreenshot="c4dc15356c84feb04928e2b2288b27a5.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='RPA Practice Site' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                              </Sequence>
+                            </uix:NCheckState.IfExists>
+                            <uix:NCheckState.IfNotExists>
+                              <Sequence DisplayName="타겟이 나타나지 않음" sap:VirtualizedContainerService.HintSize="496,2079" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="CloseTradePopup" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\Process\Page\Bank\CloseTradePopup.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '비밀번호 재입력'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="434,219" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="7debdc36-c3ce-442a-b8b7-e37833c26c8f" Text="[in_dic_config(&quot;pw&quot;).ToString + &quot;[k(Enter)]&quot;]" Version="V3">
+                                  <uix:NTypeInto.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://rpa-study.vercel.app/" DesignTimeRectangle="452, 630, 384, 51" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FriendlyName="'INPUT bank-confirm-pass…'" FullSelectorArgument="&lt;webctrl id='bank-confirm-password' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='bank-confirm-password' tag='INPUT' type='password' class='bank-input' aaname='' /&gt;" Guid="ebdc7b8a-7274-4866-a5d8-d13dcf66df4d" InformativeScreenshot="36a3e27ce0db2e2e5e05e08c0513cce7.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='RPA Practice Site' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                          <uix:Target DesignTimeRectangle="452, 607, 384, 18" ElementType="Text" FriendlyName="'비밀번호 재입력'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='' aaname='비밀번호 재입력' check:innerText='비밀번호 재입력' /&gt;" SearchSteps="FuzzySelector" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NTypeInto.Target>
+                                </uix:NTypeInto>
+                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="CloseCardPopup" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\Process\Page\Bank\CloseCardPopup.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="WaitLoading" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\Process\WaitLoading.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                                <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="20e7460a-dac5-407a-bae7-afbaa4e4743d" DisplayName="CV Screen Scope 'pane'" sap:VirtualizedContainerService.HintSize="434,528" sap2010:WorkflowViewState.IdRef="CVScope_1" SendOnPremData="False" Version="V6">
+                                  <p:CVScope.Body>
+                                    <ActivityAction x:TypeArguments="x:Object">
+                                      <ActivityAction.Argument>
+                                        <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
+                                      </ActivityAction.Argument>
+                                      <Sequence DisplayName="실행" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                        <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" DelayScreenshotAfterScroll="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Button (364,107,78,50)&quot;]" DesignTimeCacheId="20e7460a-dac5-407a-bae7-afbaa4e4743d" DesignTimeScaleFactor="1" DisplayName="CV Click - 버튼" sap:VirtualizedContainerService.HintSize="400,187" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_1" InformativeScreenshot="ecda8f88205c31ed2663a79c01bf01d3" KeyModifiers="None" MouseButton="BTN_LEFT" NumberOfScrolls="2" ScrollDirection="None" Version="V6">
+                                          <p:CvClickWithDescriptor.CursorPosition>
+                                            <ui:CursorPosition Position="Center">
+                                              <ui:CursorPosition.OffsetX>
+                                                <InArgument x:TypeArguments="x:Int32" />
+                                              </ui:CursorPosition.OffsetX>
+                                              <ui:CursorPosition.OffsetY>
+                                                <InArgument x:TypeArguments="x:Int32" />
+                                              </ui:CursorPosition.OffsetY>
+                                            </ui:CursorPosition>
+                                          </p:CvClickWithDescriptor.CursorPosition>
+                                          <p:CvClickWithDescriptor.DesignTimeDescriptor>
+                                            <uc:CvDescriptor Id="e21a5de5-6b52-4ef0-962b-c50b3f83200a">
+                                              <uc:CvDescriptor.Target>
+                                                <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="364, 107, 78, 50" ElementType="Button" />
+                                              </uc:CvDescriptor.Target>
+                                            </uc:CvDescriptor>
+                                          </p:CvClickWithDescriptor.DesignTimeDescriptor>
+                                          <p:CvClickWithDescriptor.Target>
+                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="f438aae4-cb60-4684-84d7-3a5f4e35f315">
+                                              <ui:Target.TimeoutMS>
+                                                <InArgument x:TypeArguments="x:Int32" />
+                                              </ui:Target.TimeoutMS>
+                                              <ui:Target.WaitForReady>
+                                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                                              </ui:Target.WaitForReady>
+                                            </ui:Target>
+                                          </p:CvClickWithDescriptor.Target>
+                                        </p:CvClickWithDescriptor>
+                                      </Sequence>
+                                    </ActivityAction>
+                                  </p:CVScope.Body>
+                                  <p:CVScope.DesignTimeCacheContainer>
+                                    <uc:CvCacheContainer>
+                                      <uc:CvCacheContainer.Caches>
+                                        <scg:List x:TypeArguments="uc:CVCache" Capacity="1">
+                                          <uc:CVCache DataSent="False" DisplayName="화면 CV Click - 버튼 (기본)" Id="20e7460a-dac5-407a-bae7-afbaa4e4743d" InformativeScreenshot="84db6f2bb850b49c4758f087827ecaf8" LogicalPosition="409, 78" OcrText="rpa-study.vercel.app 48: O||| 813 O|||7} 22s284q. 291" Position="409, 78" ScreenshotGuid="00f2d115-f523-4d66-979b-2b7e9118ecee" ServerVersion="0">
+                                            <uc:CVCache.CvAnchorRelations>
+                                              <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="4">
+                                                <uc:AnchorRelationInfo IsTargetText="True" Target="5">
+                                                  <uc:AnchorRelationInfo.Anchors>
+                                                    <x:Array Type="x:Int32">
+                                                      <x:Int32>4</x:Int32>
+                                                      <x:Int32>5</x:Int32>
+                                                    </x:Array>
+                                                  </uc:AnchorRelationInfo.Anchors>
+                                                </uc:AnchorRelationInfo>
+                                                <uc:AnchorRelationInfo IsTargetText="True" Target="3">
+                                                  <uc:AnchorRelationInfo.Anchors>
+                                                    <x:Array Type="x:Int32">
+                                                      <x:Int32>2</x:Int32>
+                                                      <x:Int32>3</x:Int32>
+                                                    </x:Array>
+                                                  </uc:AnchorRelationInfo.Anchors>
+                                                </uc:AnchorRelationInfo>
+                                              </scg:List>
+                                            </uc:CVCache.CvAnchorRelations>
+                                            <uc:CVCache.CvUiElements>
+                                              <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="4">
+                                                <uc:CvElementInfo Category="Button" Region="364, 107, 78, 50" />
+                                                <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="7, 2, 447, 169" />
+                                                <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="364, 105, 77, 51" />
+                                                <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="403, 124, 14, 17" />
+                                              </scg:List>
+                                            </uc:CVCache.CvUiElements>
+                                            <uc:CVCache.OcrTexts>
+                                              <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="7">
+                                                <uc:OcrTextInfo Region="25, 28, 149, 21" Text="rpa-study.vercel.app" />
+                                                <uc:OcrTextInfo Region="177, 27, 38, 20" Text="48:" />
+                                                <uc:OcrTextInfo Region="26, 58, 28, 16" Text="O|||" />
+                                                <uc:OcrTextInfo Region="55, 58, 30, 16" Text="813" />
+                                                <uc:OcrTextInfo Region="26, 78, 41, 16" Text="O|||7}" />
+                                                <uc:OcrTextInfo Region="69, 78, 97, 17" Text="22s284q." />
+                                                <uc:OcrTextInfo Region="388, 123, 28, 17" Text="291" />
+                                              </scg:List>
+                                            </uc:CVCache.OcrTexts>
+                                          </uc:CVCache>
+                                        </scg:List>
+                                      </uc:CvCacheContainer.Caches>
+                                    </uc:CvCacheContainer>
+                                  </p:CVScope.DesignTimeCacheContainer>
+                                  <p:CVScope.OCREngine>
+                                    <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd2:Rectangle, x:String))">
+                                      <ActivityFunc.Argument>
+                                        <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                                      </ActivityFunc.Argument>
+                                      <p1:UiPathScreenOCR ApiKey="{x:Null}" Endpoint="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" Text="{x:Null}" UseLocalServer="{x:Null}" ComputeSkewAngle="False" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_1" Image="[Image]" Language="en" NoopExecution="False" Profile="Screen" Scale="1" Timeout="100000" />
+                                    </ActivityFunc>
+                                  </p:CVScope.OCREngine>
+                                  <p:CVScope.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5cb031a1-dd5b-490b-a354-a3725d4e0bcd" InformativeScreenshot="2737bbd2cdd77eb6c15e28dec796cb42" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='RPA Practice Site - Chrome' /&gt;&lt;ctrl name='rpa-study.vercel.app 내용:' role='dialog' /&gt;&lt;ctrl idx='2' role='pane' /&gt;" WaitForReady="INTERACTIVE">
+                                      <ui:Target.TimeoutMS>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:Target.TimeoutMS>
+                                    </ui:Target>
+                                  </p:CVScope.Target>
+                                  <p:CVScope.UseLocalServer>
+                                    <InArgument x:TypeArguments="x:Boolean" />
+                                  </p:CVScope.UseLocalServer>
+                                </p:CVScope>
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="32" DisplayName="Click '연장'" sap:VirtualizedContainerService.HintSize="434,158" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7debdc36-c3ce-442a-b8b7-e37833c26c8f" Version="V3">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://rpa-study.vercel.app/" DesignTimeRectangle="572, 677, 68, 37" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'연장'" FullSelectorArgument="&lt;webctrl id='bank-session-timeout-confirm' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='bank-session-timeout-confirm' tag='BUTTON' type='' class='' aaname='연장' check:innerText='연장' /&gt;" Guid="b0e004d9-74f9-4857-9f9b-a9a4d5644517" InformativeScreenshot="8efa5be89f96755149d5408244a9f23d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='RPA Practice Site' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                                <uix:NGetText DisplayName="Get Text '거래번호'" sap:VirtualizedContainerService.HintSize="434,158" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="7debdc36-c3ce-442a-b8b7-e37833c26c8f" TextString="[s_trade_num]" Version="V3">
+                                  <uix:NGetText.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://rpa-study.vercel.app/" DesignTimeRectangle="721, 543, 97, 18" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'TXN0993845929'" FullSelectorArgument="&lt;webctrl id='text-bank-transfer-number' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='text-bank-transfer-number' tag='SPAN' type='' class='' /&gt;" Guid="a241a2e0-3fc8-4e6b-8590-9fed288a5a4e" InformativeScreenshot="dc83504891e76a94ee2dfa8f660bc4a9.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='RPA Practice Site' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                          <uix:Target DesignTimeRectangle="470, 543, 44, 18" ElementType="Text" FriendlyName="'거래번호'" FullSelectorArgument="&lt;webctrl parentid='bank-transfer-complete' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='bank-transfer-complete' tag='SPAN' type='' class='' aaname='거래번호' check:innerText='거래번호' /&gt;" SearchSteps="FuzzySelector" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NGetText.Target>
+                                </uix:NGetText>
+                                <Assign sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_2">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Object">[CRow("거래번호")]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Object">[s_trade_num]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '확인'" sap:VirtualizedContainerService.HintSize="434,158" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7debdc36-c3ce-442a-b8b7-e37833c26c8f" Version="V3">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://rpa-study.vercel.app/" DesignTimeRectangle="452, 740, 384, 51" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'확인'" FullSelectorArgument="&lt;webctrl id='btn-bank-close-transfer' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='btn-bank-close-transfer' tag='BUTTON' type='' class='bank-btn-green' aaname='확인' check:innerText='확인' /&gt;" Guid="411722cf-c201-45de-89f9-9013516143ef" InformativeScreenshot="19a2021203d34db8c0145ebb2b55432d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='RPA Practice Site' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                              </Sequence>
+                            </uix:NCheckState.IfNotExists>
+                            <uix:NCheckState.Target>
+                              <uix:TargetAnchorable BrowserURL="https://rpa-study.vercel.app/" DesignTimeRectangle="452, 701, 384, 18" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'잔액이 부족합니다.'" FullSelectorArgument="&lt;webctrl tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='P' type='' class='' aaname='잔액이 부족합니다.' check:innerText='잔액이 부족합니다.' /&gt;" Guid="2b434ed8-1ac9-4ee8-b49f-684c4a3b7585" InformativeScreenshot="b1cb6bed6b97ea5e6998c988709ef06c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='RPA Practice Site' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                            </uix:NCheckState.Target>
+                          </uix:NCheckState>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_5" />
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+            </ui:ForEachRow>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-7, 0, 1294, 1039" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="95cb02e2489465f7c2362d8b6edbe768.jpg" Selector="&lt;html app='chrome.exe' title='RPA Practice Site' /&gt;" Title="RPA Practice Site" Url="https://rpa-study.vercel.app/" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <Assign sap:VirtualizedContainerService.HintSize="1294,83" sap2010:WorkflowViewState.IdRef="Assign_5">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Object">[io_dic_process("dt_send")]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Object">[dt_send]</InArgument>
+      </Assign.Value>
+    </Assign>
+  </Sequence>
+</Activity>
