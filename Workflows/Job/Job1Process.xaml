@@ -1,11 +1,11 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Job1Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="io_dic_config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="io_dic_process" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>958,3722</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1103,3502</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Job1Process_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -100,7 +100,7 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Job1Process" sap:VirtualizedContainerService.HintSize="845,3657" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Job1Process" sap:VirtualizedContainerService.HintSize="845,3437" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="arr_s_tab_list" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_item" />
@@ -111,66 +111,42 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="arr_s_tab_list" DisplayName="UnpackDictionary" sap:VirtualizedContainerService.HintSize="783,144" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\Components\UnpackDictionary.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_key">arr_s_tab_list</InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_str" />
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dict">[io_dic_config]</InArgument>
-        <OutArgument x:TypeArguments="x:Int32" x:Key="out_int" />
-        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_bool" />
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_datatable" />
-        <OutArgument x:TypeArguments="s:DateTime" x:Key="out_datetime" />
-        <OutArgument x:TypeArguments="x:Double" x:Key="out_double" />
-        <OutArgument x:TypeArguments="s:String[]" x:Key="out_arr_str">[arr_s_tab_list]</OutArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="dt_item" DisplayName="UnpackDictionary" sap:VirtualizedContainerService.HintSize="783,144" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Workflows\Components\UnpackDictionary.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_key">dt_item</InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_str" />
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dict">[io_dic_config]</InArgument>
-        <OutArgument x:TypeArguments="x:Int32" x:Key="out_int" />
-        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_bool" />
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_datatable">[dt_item]</OutArgument>
-        <OutArgument x:TypeArguments="s:DateTime" x:Key="out_datetime" />
-        <OutArgument x:TypeArguments="x:Double" x:Key="out_double" />
-        <OutArgument x:TypeArguments="s:String[]" x:Key="out_arr_str" />
-      </ui:InvokeWorkflowFile.Arguments>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="dt_item_group&#xD;&#xA;" DisplayName="UnpackDictionary" sap:VirtualizedContainerService.HintSize="783,155" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Workflows\Components\UnpackDictionary.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_key">
-          <Literal x:TypeArguments="x:String">dt_item_group</Literal>
-        </InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_str" />
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dict">
-          <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_dic_config" />
-        </InArgument>
-        <OutArgument x:TypeArguments="x:Int32" x:Key="out_int" />
-        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_bool" />
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_datatable">
-          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_item_group" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="s:DateTime" x:Key="out_datetime" />
-        <OutArgument x:TypeArguments="x:Double" x:Key="out_double" />
-        <OutArgument x:TypeArguments="s:String[]" x:Key="out_arr_str" />
-      </ui:InvokeWorkflowFile.Arguments>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:InvokeWorkflowFile>
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="783,116" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="s:String[]">[arr_s_tab_list]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="s:String[]">[TryCast(io_dic_process("arr_s_tab_list"), String())]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="783,147" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="sd:DataTable">[dt_item]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="sd:DataTable">[TryCast(io_dic_process("dt_item"), DataTable)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="sd:DataTable">[dt_item_group]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="sd:DataTable">[TryCast(io_dic_process("dt_item_group"), DataTable)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
     <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="783,2673" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[arr_s_tab_list]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
@@ -188,9 +164,7 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GoToTab" sap:VirtualizedContainerService.HintSize="707,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\Process\Page\Shoppingmall\GoToTab.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="in_s_tab_name">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="s_tab" />
-                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_s_tab_name">[s_tab]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="CrawItemList" sap:VirtualizedContainerService.HintSize="707,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\Process\Page\Shoppingmall\CrawItemList.xaml">
@@ -237,7 +211,7 @@
                           <ui:ForEachRow.Body>
                             <ActivityAction x:TypeArguments="sd:DataRow">
                               <ActivityAction.Argument>
-                                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CRow" />
                               </ActivityAction.Argument>
                               <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="521,1166" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                 <Sequence.Variables>
@@ -264,7 +238,7 @@
                                           <OutArgument x:TypeArguments="x:String">[s_name]</OutArgument>
                                         </ui:AssignOperation.To>
                                         <ui:AssignOperation.Value>
-                                          <InArgument x:TypeArguments="x:String">[CurrentRow("이름").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String">[CRow("이름").ToString]</InArgument>
                                         </ui:AssignOperation.Value>
                                       </ui:AssignOperation>
                                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -272,7 +246,7 @@
                                           <OutArgument x:TypeArguments="x:String">[s_price]</OutArgument>
                                         </ui:AssignOperation.To>
                                         <ui:AssignOperation.Value>
-                                          <InArgument x:TypeArguments="x:String">[CurrentRow("정가").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String">[CRow("정가").ToString]</InArgument>
                                         </ui:AssignOperation.Value>
                                       </ui:AssignOperation>
                                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -280,7 +254,7 @@
                                           <OutArgument x:TypeArguments="x:String">[s_sale_price]</OutArgument>
                                         </ui:AssignOperation.To>
                                         <ui:AssignOperation.Value>
-                                          <InArgument x:TypeArguments="x:String">[CurrentRow("판매가").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String">[CRow("판매가").ToString]</InArgument>
                                         </ui:AssignOperation.Value>
                                       </ui:AssignOperation>
                                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
@@ -288,7 +262,7 @@
                                           <OutArgument x:TypeArguments="x:String">[s_score]</OutArgument>
                                         </ui:AssignOperation.To>
                                         <ui:AssignOperation.Value>
-                                          <InArgument x:TypeArguments="x:String">[CurrentRow("평점").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String">[CRow("평점").ToString]</InArgument>
                                         </ui:AssignOperation.Value>
                                       </ui:AssignOperation>
                                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
@@ -296,7 +270,7 @@
                                           <OutArgument x:TypeArguments="x:String">[s_review_count]</OutArgument>
                                         </ui:AssignOperation.To>
                                         <ui:AssignOperation.Value>
-                                          <InArgument x:TypeArguments="x:String">[CurrentRow("리뷰 수").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String">[CRow("리뷰 수").ToString]</InArgument>
                                         </ui:AssignOperation.Value>
                                       </ui:AssignOperation>
                                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
@@ -320,7 +294,9 @@
                                 </Assign>
                                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GoToItemDetail" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Workflows\Process\Page\Shoppingmall\GoToItemDetail.xaml">
                                   <ui:InvokeWorkflowFile.Arguments>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_s_item_name">[CurrentRow("이름").ToString]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_s_item_name">
+                                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="s_name" />
+                                    </InArgument>
                                   </ui:InvokeWorkflowFile.Arguments>
                                 </ui:InvokeWorkflowFile>
                                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="CrawItemDetail" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Workflows\Process\Page\Shoppingmall\CrawItemDetail.xaml">
@@ -377,7 +353,7 @@ Select dt_item_group.Rows.Add({
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
             <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:Object">[io_dic_config("dt_item")]</OutArgument>
+              <OutArgument x:TypeArguments="x:Object">[io_dic_process("dt_item")]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="x:Object">[dt_item]</InArgument>
@@ -385,7 +361,7 @@ Select dt_item_group.Rows.Add({
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
             <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:Object">[io_dic_config("dt_item_group")]</OutArgument>
+              <OutArgument x:TypeArguments="x:Object">[io_dic_process("dt_item_group")]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="x:Object">[dt_item_group]</InArgument>

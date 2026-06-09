@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>958,1488</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1103,1488</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GoToTab_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -132,7 +132,7 @@
                 <uix:TargetAnchorable BrowserURL="https://rpa-study.vercel.app/" CVScreenId="6a0fba28-dda1-451f-b6f3-929f4aabfed4" CvElementArea="36, 450, 66, 55" CvTextArea="43, 456, 54, 34" CvType="Icon" DesignTimeRectangle="45, 447, 52, 60" DesignTimeScaleFactor="2" ElementType="Button" FriendlyName="'전체'" FullSelectorArgument="&lt;webctrl id='shop-cat-*' tag='BUTTON' /&gt;" FuzzySelectorArgument="[&quot;&lt;webctrl id='shop-cat-*' tag='BUTTON' type='' class='whitespace-nowrap py-1 font-medium transition-colors shrink-0 border-b-2' aaname='&quot;+in_s_tab_name+&quot;' /&gt;&quot;]" Guid="be1fb63a-6322-4e58-9d47-9bdb5df31476" InformativeScreenshot="acb487ada7595dac81596149f36757f7.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='RPA Practice Site' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
               </uix:NGetAttributeGeneric.Target>
             </uix:NGetAttributeGeneric>
-            <If Condition="[s_attr.Contains(&quot;border-color: transparent&quot;)]" sap:VirtualizedContainerService.HintSize="410,427" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[s_attr.Replace(&quot; &quot;, &quot;&quot;).Contains(&quot;border-color:transparent&quot;)]" sap:VirtualizedContainerService.HintSize="410,427" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
                 <Sequence sap:VirtualizedContainerService.HintSize="376,245" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>

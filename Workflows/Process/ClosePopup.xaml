@@ -1,4 +1,12 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ClosePopup" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1102,1480" sap2010:WorkflowViewState.IdRef="ClosePopup_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ClosePopup" this:ClosePopup.i_wait="2" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="i_wait" Type="InArgument(x:Int32)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1102,1486</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ClosePopup_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -94,7 +102,7 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ClosePopup" sap:VirtualizedContainerService.HintSize="1112,1415" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ClosePopup" sap:VirtualizedContainerService.HintSize="1112,1421" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Object" Name="obj_timer" />
       <Variable x:TypeArguments="x:String" Default="팝업" Name="s_task_name" />
@@ -104,21 +112,21 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: RPA Practice Site" sap:VirtualizedContainerService.HintSize="1050,1304" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="260889a5-4739-473e-b2cb-7769a340e72e" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: RPA Practice Site" sap:VirtualizedContainerService.HintSize="1050,1310" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="260889a5-4739-473e-b2cb-7769a340e72e" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="1016,1087" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="1016,1093" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NCheckState DisplayName="Check App State '닫기'" sap:VirtualizedContainerService.HintSize="954,976" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="260889a5-4739-473e-b2cb-7769a340e72e" Timeout="0" Version="V3">
+            <uix:NCheckState DisplayName="Check App State '닫기'" sap:VirtualizedContainerService.HintSize="954,978" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="260889a5-4739-473e-b2cb-7769a340e72e" Timeout="[i_wait]" Version="V3">
               <uix:NCheckState.IfExists>
-                <Sequence DisplayName="타겟이 나타남" sap:VirtualizedContainerService.HintSize="450,759" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="타겟이 나타남" sap:VirtualizedContainerService.HintSize="450,761" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -131,9 +139,9 @@
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;팝업 발견, 닫기 시도&quot;]" />
-                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '닫기'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="260889a5-4739-473e-b2cb-7769a340e72e" Version="V3">
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '닫기'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="260889a5-4739-473e-b2cb-7769a340e72e" Version="V3">
                     <uix:NClick.Target>
-                      <uix:TargetAnchorable BrowserURL="https://rpa-study.vercel.app/" CVScreenId="5f24dab8-90b6-4c61-b64f-9d1d964f055e" CvElementArea="1255, 1323, 144, 81" CvTextArea="1297, 1346, 58, 36" CvTextArgument="E7|" CvType="Button" DesignTimeRectangle="1260, 1328, 136, 74" DesignTimeScaleFactor="2" ElementType="Button" FriendlyName="'닫기'" FullSelectorArgument="&lt;webctrl id='shop-event-popup-close' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='*-close' tag='BUTTON' type='' class='' aaname='닫기' check:innerText='닫기' /&gt;" Guid="515aae93-a241-4fca-977d-8b2a1ff040b9" InformativeScreenshot="8386a487fce4c72fe92aa8466531c82e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='RPA Practice Site' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                      <uix:TargetAnchorable BrowserURL="https://rpa-study.vercel.app/" CVScreenId="5f24dab8-90b6-4c61-b64f-9d1d964f055e" CvElementArea="1255, 1323, 144, 81" CvTextArea="1297, 1346, 58, 36" CvTextArgument="E7|" CvType="Button" DesignTimeRectangle="1260, 1328, 136, 74" DesignTimeScaleFactor="2" ElementType="Button" FriendlyName="'닫기'" FullSelectorArgument="&lt;webctrl id='*popup-close' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='*-close' tag='BUTTON' type='' class='' aaname='*' check:innerText='*' /&gt;" Guid="515aae93-a241-4fca-977d-8b2a1ff040b9" InformativeScreenshot="8386a487fce4c72fe92aa8466531c82e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='RPA Practice Site' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
                     </uix:NClick.Target>
                   </uix:NClick>
                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="EndLog.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\Components\EndLog.xaml">
@@ -155,7 +163,7 @@
                 </Sequence>
               </uix:NCheckState.IfNotExists>
               <uix:NCheckState.Target>
-                <uix:TargetAnchorable BrowserURL="https://rpa-study.vercel.app/" CVScreenId="582124cd-0053-4ee2-a8c9-44a3b66195ee" CvElementArea="1255, 1323, 144, 81" CvTextArea="1297, 1346, 58, 36" CvTextArgument="E7|" CvType="Button" DesignTimeRectangle="1260, 1328, 136, 74" DesignTimeScaleFactor="2" ElementType="Button" FriendlyName="'닫기'" FullSelectorArgument="&lt;webctrl id='shop-event-popup-close' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='*-close' tag='BUTTON' type='' class='' aaname='닫기' check:innerText='닫기' /&gt;" Guid="7ace5be1-7f6d-4e5b-9e56-49aafd6d7442" InformativeScreenshot="92232a3aba097781d513055e8b33466a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='RPA Practice Site' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                <uix:TargetAnchorable BrowserURL="https://rpa-study.vercel.app/" CVScreenId="582124cd-0053-4ee2-a8c9-44a3b66195ee" CvElementArea="1255, 1323, 144, 81" CvTextArea="1297, 1346, 58, 36" CvTextArgument="E7|" CvType="Button" DesignTimeRectangle="1260, 1328, 136, 74" DesignTimeScaleFactor="2" ElementType="Button" FriendlyName="'닫기'" FullSelectorArgument="&lt;webctrl id='*popup-close' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='*-close' tag='BUTTON' type='' class='' aaname='*' check:innerText='*' /&gt;" Guid="7ace5be1-7f6d-4e5b-9e56-49aafd6d7442" InformativeScreenshot="92232a3aba097781d513055e8b33466a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='RPA Practice Site' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
               </uix:NCheckState.Target>
             </uix:NCheckState>
           </Sequence>
