@@ -1,0 +1,409 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CrawTicket" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:sd2="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="io_dic_process" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1070,2185</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>CrawTicket_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="CrawTicket" sap:VirtualizedContainerService.HintSize="575,2120" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Object" Name="obj_timer" />
+      <Variable x:TypeArguments="x:String" Name="s_task_name">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">티켓 OCR</Literal>
+        </Variable.Default>
+      </Variable>
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="StartLog" sap:VirtualizedContainerService.HintSize="513,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\Components\StartLog.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="x:Object" x:Key="out_obj_timer">
+          <VisualBasicReference x:TypeArguments="x:Object" ExpressionText="obj_timer" />
+        </OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_s_task_name">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="s_task_name" />
+        </InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="cd2d40b4-1ffd-4cc2-bbd5-d09e59032da9" DisplayName="CV Screen Scope 'CANVAS  ticket-canvas'" sap:VirtualizedContainerService.HintSize="513,1703" sap2010:WorkflowViewState.IdRef="CVScope_1" SendOnPremData="False" Version="V6">
+      <p:CVScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="실행" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd2:DataTable" Name="dt_table" />
+              <Variable x:TypeArguments="x:String" Name="s_num" />
+              <Variable x:TypeArguments="x:String" Name="s_aria" />
+              <Variable x:TypeArguments="x:String" Name="s_date" />
+              <Variable x:TypeArguments="x:String" Name="s_price" />
+              <Variable x:TypeArguments="sd2:DataTable" Name="dt_result" />
+            </Sequence.Variables>
+            <p:CvExtractDataTableWithDescriptor InRegion="{x:Null}" AddHeaders="True" DelayScreenshotAfterScroll="250" Descriptor="[&quot;Target: Table (3,112,454,205)&quot;]" DesignTimeCacheId="cd2d40b4-1ffd-4cc2-bbd5-d09e59032da9" DesignTimeScaleFactor="1" DisplayName="CV Extract Table - 테이블" sap:VirtualizedContainerService.HintSize="479,190" sap2010:WorkflowViewState.IdRef="CvExtractDataTableWithDescriptor_1" IgnoreEmptyRows="False" InformativeScreenshot="bb0f9cb8e56e55361403ba29657dc580" MaxTableScrollHeightInPixels="30000" NumberOfScrolls="2" RefreshBefore="True" Result="[dt_table]" Scroll="False" ScrollDirection="None" Version="V6">
+              <p:CvExtractDataTableWithDescriptor.DesignTimeDescriptor>
+                <uc:CvDescriptor Id="85848970-8a67-48e2-a623-786faf154296">
+                  <uc:CvDescriptor.Target>
+                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="3, 112, 454, 205" ElementType="Table" />
+                  </uc:CvDescriptor.Target>
+                </uc:CvDescriptor>
+              </p:CvExtractDataTableWithDescriptor.DesignTimeDescriptor>
+            </p:CvExtractDataTableWithDescriptor>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[dt_table.Columns(2).ColumnName]" />
+            <Assign sap:VirtualizedContainerService.HintSize="479,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[s_num]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[dt_table.Columns(2).ColumnName]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,178" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[s_aria]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[dt_table(0)(s_num).Tostring.replace(" ", "")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[s_date]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[dt_table(1)(s_num).Tostring]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[s_price]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(dt_table(3)(s_num).Tostring, "[^0-9]", "")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[s_num + &quot; / &quot; + s_aria + &quot; / &quot; + s_date + &quot; / &quot; + s_price]" />
+            <Assign sap:VirtualizedContainerService.HintSize="479,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+              <Assign.To>
+                <OutArgument x:TypeArguments="sd2:DataTable">[dt_result]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="sd2:DataTable">[CType(io_dic_process("dt_result"), DataTable)]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{s_num, s_aria, s_date, s_price}]" DataTable="[dt_result]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="479,186" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+            <Assign sap:VirtualizedContainerService.HintSize="479,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Object">[io_dic_process("dt_result")]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Object">[dt_result]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </ActivityAction>
+      </p:CVScope.Body>
+      <p:CVScope.DesignTimeCacheContainer>
+        <uc:CvCacheContainer>
+          <uc:CvCacheContainer.Caches>
+            <scg:List x:TypeArguments="uc:CVCache" Capacity="1">
+              <uc:CVCache DataSent="False" DisplayName="화면 CV Extract Table - 테이블 (기본)" Id="cd2d40b4-1ffd-4cc2-bbd5-d09e59032da9" InformativeScreenshot="4b91f5791929b80588e0e2820dd9c804" LogicalPosition="401, 387" OcrText="트 립 메 이 트&#xD;&#xA;TripMate Booking Ticket&#xD;&#xA;예 약 확 인 티 켓&#xD;&#xA;예 약 번 호 RSV-20260610-561&#xD;&#xA;예 약 장 소&#xD;&#xA;예 약 일 시 2026-06-13 10:30&#xD;&#xA;인 원 1 명 서 울 시 그 니 엘 호 텔&#xD;&#xA;총 결 제 금 액 425,250 원&#xD;&#xA;예 약 상 태 예 약 확 정&#xD;&#xA;예 약 바 코 드&#xD;&#xA;본&#xD;&#xA;티 켓 은 UiPath CV Screen Scope / OCR 실 습 용 입 니 다 . TripMate © 2026" Position="401, 387" ScreenshotGuid="0c041497-120b-4ce3-9d66-149164e9f656" ServerVersion="0">
+                <uc:CVCache.CvTables>
+                  <x:Array Type="uc:CvTableInfo">
+                    <uc:CvTableInfo>
+                      <uc:CvTableInfo.Columns>
+                        <x:Array Type="x:Int32">
+                          <x:Int32>3</x:Int32>
+                          <x:Int32>23</x:Int32>
+                          <x:Int32>175</x:Int32>
+                          <x:Int32>457</x:Int32>
+                        </x:Array>
+                      </uc:CvTableInfo.Columns>
+                      <uc:CvTableInfo.Rows>
+                        <x:Array Type="x:Int32">
+                          <x:Int32>112</x:Int32>
+                          <x:Int32>144</x:Int32>
+                          <x:Int32>174</x:Int32>
+                          <x:Int32>205</x:Int32>
+                          <x:Int32>236</x:Int32>
+                          <x:Int32>266</x:Int32>
+                          <x:Int32>298</x:Int32>
+                          <x:Int32>317</x:Int32>
+                        </x:Array>
+                      </uc:CvTableInfo.Rows>
+                    </uc:CvTableInfo>
+                  </x:Array>
+                </uc:CVCache.CvTables>
+                <uc:CVCache.CvUiElements>
+                  <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="32">
+                    <uc:CvElementInfo Category="Icon" Region="416, 40, 38, 23" />
+                    <uc:CvElementInfo Category="Cell" Region="3, 112, 20, 32" />
+                    <uc:CvElementInfo Category="Cell" Region="3, 144, 20, 30" />
+                    <uc:CvElementInfo Category="Cell" Region="3, 174, 20, 31" />
+                    <uc:CvElementInfo Category="Cell" Region="3, 205, 20, 31" />
+                    <uc:CvElementInfo Category="Cell" Region="3, 236, 20, 30" />
+                    <uc:CvElementInfo Category="Cell" Region="3, 266, 20, 32" />
+                    <uc:CvElementInfo Category="Cell" Region="3, 298, 20, 19" />
+                    <uc:CvElementInfo Category="Cell" Region="23, 112, 152, 32" />
+                    <uc:CvElementInfo Category="Cell" Region="23, 144, 152, 30" />
+                    <uc:CvElementInfo Category="Cell" Region="23, 174, 152, 31" />
+                    <uc:CvElementInfo Category="Cell" Region="23, 205, 152, 31" />
+                    <uc:CvElementInfo Category="Cell" Region="23, 236, 152, 30" />
+                    <uc:CvElementInfo Category="Cell" Region="23, 266, 152, 32" />
+                    <uc:CvElementInfo Category="Cell" Region="23, 298, 152, 19" />
+                    <uc:CvElementInfo Category="Cell" Region="175, 112, 282, 32" />
+                    <uc:CvElementInfo Category="Cell" Region="175, 144, 282, 30" />
+                    <uc:CvElementInfo Category="Cell" Region="175, 174, 282, 31" />
+                    <uc:CvElementInfo Category="Cell" Region="175, 205, 282, 31" />
+                    <uc:CvElementInfo Category="Cell" Region="175, 236, 282, 30" />
+                    <uc:CvElementInfo Category="Cell" Region="175, 266, 282, 32" />
+                    <uc:CvElementInfo Category="Cell" Region="175, 298, 282, 19" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="29, 335, 67, 51" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="28, 243, 13, 15" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="24, 394, 11, 12" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="37, 343, 18, 17" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="417, 41, 37, 22" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="27, 149, 24, 17" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="24, 394, 11, 12" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="461, 88, 9, 10" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="236, 149, 14, 15" />
+                  </scg:List>
+                </uc:CVCache.CvUiElements>
+                <uc:CVCache.OcrTexts>
+                  <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="81">
+                    <uc:OcrTextInfo Region="28, 18, 14, 23" Text="트" />
+                    <uc:OcrTextInfo Region="49, 18, 15, 23" Text="립" />
+                    <uc:OcrTextInfo Region="64, 18, 15, 23" Text="메" />
+                    <uc:OcrTextInfo Region="79, 18, 15, 23" Text="이" />
+                    <uc:OcrTextInfo Region="104, 18, 14, 23" Text="트" />
+                    <uc:OcrTextInfo Region="26, 46, 48, 15" Text="TripMate" />
+                    <uc:OcrTextInfo Region="75, 46, 49, 15" Text="Booking" />
+                    <uc:OcrTextInfo Region="125, 46, 36, 15" Text="Ticket" />
+                    <uc:OcrTextInfo Region="25, 64, 7, 14" Text="예" />
+                    <uc:OcrTextInfo Region="37, 64, 8, 14" Text="약" />
+                    <uc:OcrTextInfo Region="50, 64, 9, 14" Text="확" />
+                    <uc:OcrTextInfo Region="59, 64, 9, 14" Text="인" />
+                    <uc:OcrTextInfo Region="71, 64, 8, 14" Text="티" />
+                    <uc:OcrTextInfo Region="82, 64, 9, 14" Text="켓" />
+                    <uc:OcrTextInfo Region="29, 121, 6, 13" Text="예" />
+                    <uc:OcrTextInfo Region="41, 121, 8, 14" Text="약" />
+                    <uc:OcrTextInfo Region="52, 121, 8, 14" Text="번" />
+                    <uc:OcrTextInfo Region="61, 121, 7, 14" Text="호" />
+                    <uc:OcrTextInfo Region="180, 121, 117, 14" Text="RSV-20260610-561" />
+                    <uc:OcrTextInfo Region="29, 151, 7, 14" Text="예" />
+                    <uc:OcrTextInfo Region="41, 151, 9, 14" Text="약" />
+                    <uc:OcrTextInfo Region="54, 151, 8, 14" Text="장" />
+                    <uc:OcrTextInfo Region="64, 152, 8, 13" Text="소" />
+                    <uc:OcrTextInfo Region="29, 182, 7, 14" Text="예" />
+                    <uc:OcrTextInfo Region="41, 181, 8, 15" Text="약" />
+                    <uc:OcrTextInfo Region="54, 182, 7, 14" Text="일" />
+                    <uc:OcrTextInfo Region="61, 182, 9, 14" Text="시" />
+                    <uc:OcrTextInfo Region="180, 182, 65, 13" Text="2026-06-13" />
+                    <uc:OcrTextInfo Region="245, 182, 33, 13" Text="10:30" />
+                    <uc:OcrTextInfo Region="30, 212, 9, 14" Text="인" />
+                    <uc:OcrTextInfo Region="41, 212, 7, 14" Text="원" />
+                    <uc:OcrTextInfo Region="180, 212, 6, 13" Text="1" />
+                    <uc:OcrTextInfo Region="190, 212, 7, 13" Text="명" />
+                    <uc:OcrTextInfo Region="181, 150, 7, 15" Text="서" />
+                    <uc:OcrTextInfo Region="193, 150, 9, 15" Text="울" />
+                    <uc:OcrTextInfo Region="205, 150, 8, 15" Text="시" />
+                    <uc:OcrTextInfo Region="216, 150, 9, 15" Text="그" />
+                    <uc:OcrTextInfo Region="227, 150, 9, 15" Text="니" />
+                    <uc:OcrTextInfo Region="241, 150, 9, 15" Text="엘" />
+                    <uc:OcrTextInfo Region="254, 150, 9, 15" Text="호" />
+                    <uc:OcrTextInfo Region="266, 150, 7, 15" Text="텔" />
+                    <uc:OcrTextInfo Region="31, 244, 8, 13" Text="총" />
+                    <uc:OcrTextInfo Region="43, 244, 7, 13" Text="결" />
+                    <uc:OcrTextInfo Region="53, 244, 8, 13" Text="제" />
+                    <uc:OcrTextInfo Region="67, 244, 7, 13" Text="금" />
+                    <uc:OcrTextInfo Region="75, 244, 8, 13" Text="액" />
+                    <uc:OcrTextInfo Region="180, 243, 46, 15" Text="425,250" />
+                    <uc:OcrTextInfo Region="229, 243, 8, 15" Text="원" />
+                    <uc:OcrTextInfo Region="28, 274, 7, 13" Text="예" />
+                    <uc:OcrTextInfo Region="41, 274, 9, 14" Text="약" />
+                    <uc:OcrTextInfo Region="52, 274, 9, 14" Text="상" />
+                    <uc:OcrTextInfo Region="63, 274, 8, 14" Text="태" />
+                    <uc:OcrTextInfo Region="181, 273, 8, 15" Text="예" />
+                    <uc:OcrTextInfo Region="193, 273, 9, 15" Text="약" />
+                    <uc:OcrTextInfo Region="205, 273, 8, 15" Text="확" />
+                    <uc:OcrTextInfo Region="216, 273, 9, 15" Text="정" />
+                    <uc:OcrTextInfo Region="112, 323, 5, 9" Text="예" />
+                    <uc:OcrTextInfo Region="121, 323, 5, 9" Text="약" />
+                    <uc:OcrTextInfo Region="131, 323, 5, 9" Text="바" />
+                    <uc:OcrTextInfo Region="141, 323, 5, 10" Text="코" />
+                    <uc:OcrTextInfo Region="149, 323, 6, 10" Text="드" />
+                    <uc:OcrTextInfo Region="26, 393, 8, 12" Text="본" />
+                    <uc:OcrTextInfo Region="34, 394, 8, 12" Text="티" />
+                    <uc:OcrTextInfo Region="44, 394, 8, 12" Text="켓" />
+                    <uc:OcrTextInfo Region="52, 394, 8, 12" Text="은" />
+                    <uc:OcrTextInfo Region="61, 394, 30, 12" Text="UiPath" />
+                    <uc:OcrTextInfo Region="91, 394, 13, 12" Text="CV" />
+                    <uc:OcrTextInfo Region="104, 394, 30, 12" Text="Screen" />
+                    <uc:OcrTextInfo Region="134, 394, 29, 12" Text="Scope" />
+                    <uc:OcrTextInfo Region="162, 394, 6, 12" Text="/" />
+                    <uc:OcrTextInfo Region="167, 393, 22, 13" Text="OCR" />
+                    <uc:OcrTextInfo Region="190, 393, 9, 14" Text="실" />
+                    <uc:OcrTextInfo Region="200, 393, 9, 14" Text="습" />
+                    <uc:OcrTextInfo Region="209, 393, 8, 14" Text="용" />
+                    <uc:OcrTextInfo Region="217, 393, 6, 14" Text="입" />
+                    <uc:OcrTextInfo Region="222, 393, 8, 14" Text="니" />
+                    <uc:OcrTextInfo Region="232, 393, 6, 14" Text="다" />
+                    <uc:OcrTextInfo Region="237, 393, 7, 14" Text="." />
+                    <uc:OcrTextInfo Region="352, 394, 39, 13" Text="TripMate" />
+                    <uc:OcrTextInfo Region="391, 394, 7, 12" Text="©" />
+                    <uc:OcrTextInfo Region="401, 393, 22, 13" Text="2026" />
+                  </scg:List>
+                </uc:CVCache.OcrTexts>
+              </uc:CVCache>
+            </scg:List>
+          </uc:CvCacheContainer.Caches>
+        </uc:CvCacheContainer>
+      </p:CVScope.DesignTimeCacheContainer>
+      <p:CVScope.OCREngine>
+        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+          <ActivityFunc.Argument>
+            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+          </ActivityFunc.Argument>
+          <p1:CjkOCR Output="{x:Null}" PredictionId="{x:Null}" Text="{x:Null}" ApiKey="hQlvCbH4W6Fl7z/vu8ZTBYwz6YIWCMiu+o+TP0M1YeFWXCV8D/L2ayESgN+IrR5DXwrCLYKzZSu8fSA4TPjvIw==" ComputeSkewAngle="False" DisplayName="OCR - Japanese, Chinese, Korean" Endpoint="https://du-jp.uipath.com/cjk-ocr" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="CjkOCR_1" Image="[Image]" Language="auto" NoopExecution="False" Profile="None" Scale="1" Timeout="100000" />
+        </ActivityFunc>
+      </p:CVScope.OCREngine>
+      <p:CVScope.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f523af61-6281-49ec-93f7-ec975355d288" InformativeScreenshot="a512be5f3d33d12aa7d02ec12434aeb0" Selector="&lt;html app='chrome.exe' title='RPA Practice Site' /&gt;&lt;webctrl id='ticket-canvas' tag='CANVAS' /&gt;" WaitForReady="INTERACTIVE">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+        </ui:Target>
+      </p:CVScope.Target>
+      <p:CVScope.UseLocalServer>
+        <InArgument x:TypeArguments="x:Boolean" />
+      </p:CVScope.UseLocalServer>
+    </p:CVScope>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="EndLog" sap:VirtualizedContainerService.HintSize="513,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\Components\EndLog.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:Object" x:Key="in_obj_timer">
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="obj_timer" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_s_task_name">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="s_task_name" />
+        </InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+  </Sequence>
+</Activity>
