@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1103,1488</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1070,1488</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GoToTab_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -140,7 +140,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '전체'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c6943ed5-95d8-44a8-8e39-ddb065aa41d1" Version="V3">
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '전체'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c6943ed5-95d8-44a8-8e39-ddb065aa41d1" Version="V3">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="https://rpa-study.vercel.app/" CVScreenId="a8b5c801-f449-45d3-a248-45e9ff50fef6" CvElementArea="36, 450, 66, 55" CvTextArea="43, 456, 54, 34" CvType="Icon" DesignTimeRectangle="45, 447, 52, 60" DesignTimeScaleFactor="2" ElementType="Button" FriendlyName="'전체'" FullSelectorArgument="&lt;webctrl id='shop-cat-*' tag='BUTTON' /&gt;" FuzzySelectorArgument="[&quot;&lt;webctrl id='shop-cat-*' tag='BUTTON' type='' class='whitespace-nowrap py-1 font-medium transition-colors shrink-0 border-b-2' aaname='&quot;+in_s_tab_name+&quot;' /&gt;&quot;]" Guid="6bfb7168-029b-41d1-83c1-5109c6daae02" InformativeScreenshot="2fcbb1b3527ce64c6fe0695170d66702.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='RPA Practice Site' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
                     </uix:NClick.Target>
